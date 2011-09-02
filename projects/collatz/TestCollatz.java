@@ -6,7 +6,9 @@
 
 /*
 To test the program:
-    % setenv CLASSPATH .:/share/opt/junit-4.5/junit-4.5.jar
+    % locate junit4-4.8
+    /usr/share/java/junit4-4.8.1.jar
+    % setenv CLASSPATH .:/usr/share/java/junit4-4.8.1.jar
     % javac -Xlint TestCollatz.java
     % java  -ea    TestCollatz
 */

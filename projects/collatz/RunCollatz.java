@@ -10,7 +10,7 @@ To run the program:
     % java  -ea    RunCollatz < RunCollatz.in > RunCollatz.out
 
 To document the program:
-    % javadoc -d html -private *.java
+    % javadoc -d html -private Collatz.java
 */
 
 // -------
