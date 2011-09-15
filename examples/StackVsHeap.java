@@ -12,25 +12,23 @@ final class StackVsHeap {
         System.out.println("StackVsHeap.java");
 
         try {
-            final int n = 10000;
-            assert f(n) == n;}
+            assert f(1234) == 1234;}
         catch (StackOverflowError e) {
             assert false;}
 
         try {
-            final int n = 100000;
-            assert f(n) == n;
+            assert f(12345) == 12345;
             assert false;}
         catch (StackOverflowError e) {
             assert e.toString().equals("java.lang.StackOverflowError");}
 
         try {
-            final int[] a = new int[10000000];}
+            final int[] a = new int[12345678];}
         catch (OutOfMemoryError e) {
             assert false;}
 
         try {
-            final int[] a = new int[100000000];
+            final int[] a = new int[123456789];
             assert false;}
         catch (OutOfMemoryError e) {
             assert e.toString().equals("java.lang.OutOfMemoryError: Java heap space");}

@@ -28,6 +28,7 @@ int main () {
         assert(false);
         }
     catch (const domain_error& e) {
+//      assert(       e                == "abc");  // error: no match for ‘operator==’ in ‘e == "abc"’
         assert(       e.what()         != "abc");  // warning: comparison with string literal results in unspecified behavior
         assert(strcmp(e.what(), "abc") == 0);
         assert(string(e.what())        == "abc");}
@@ -35,9 +36,6 @@ int main () {
     domain_error x("abc");
     logic_error& r = x;
     exception&   s = r;
-
-    assert(&r == &x);
-    assert(&s == &r);
 
     cout << "Done." << endl;
     return 0;}
