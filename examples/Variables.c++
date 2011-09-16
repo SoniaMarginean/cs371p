@@ -2,8 +2,9 @@
 // Variables.c++
 // -------------
 
-#include <cassert>  // assert
-#include <iostream> // cout, endl
+#include <algorithm> // assert
+#include <cassert>   // assert
+#include <iostream>  // cout, endl
 
 int main () {
     using namespace std;
@@ -58,6 +59,33 @@ int main () {
     ++a[0];
     assert(*a   == 3);
 //  assert(a[3] == 0);                      // undefined
+    }
+
+    {
+    int        a[] = {2, 3, 4};
+//  int        b[] = a;             // error: initializer fails to determine size of 'b'
+    int* const b   = a;
+    assert(a == b);
+    }
+
+    {
+    int a[] = {2, 3, 4};
+    int b[] = {2, 3, 4};
+    assert(a != b);
+    assert(equal(a, a + 3, b));
+    }
+
+    {
+    int        a[] = {2, 3, 4};
+//  int        b[] = a;             // error: initializer fails to determine size of 'b'
+    int* const b   = a;
+    assert(a         == b);
+    assert(sizeof(a) != sizeof(b));
+    assert(sizeof(a) == 12);
+    assert(sizeof(b) ==  8);
+    ++a[1];
+    assert(a[1] == 4);
+    assert(b[1] == 4);
     }
 
     cout << "Done." << endl;

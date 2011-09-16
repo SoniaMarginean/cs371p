@@ -26,9 +26,7 @@ final class Arguments {
         {
         int a[] = {2, 3, 4};
         g(a);
-        assert a != new int[]{2, 4, 4};
-        assert !a.equals(new int[]{2, 4, 4});
-        assert Arrays.equals(a, new int[]{2, 4, 4});
+        assert a[1] == 4;
         }
 
         System.out.println("Done.");}}

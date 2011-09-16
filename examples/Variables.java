@@ -2,6 +2,8 @@
 // Variables.java
 // --------------
 
+import java.util.Arrays;
+
 final class Variables {
     public static void main (String[] args) {
         System.out.println("Variables.java");
@@ -31,6 +33,28 @@ final class Variables {
             assert false;}
         catch (ArrayIndexOutOfBoundsException e)
             {}
+        }
+
+        {
+        final int[] a = {2, 3, 4};
+        final int[] b = a;
+        assert a == b;
+        }
+
+        {
+        final int[] a = {2, 3, 4};
+        final int[] b = {2, 3, 4};
+        assert a != b;
+        assert !a.equals(b);
+        assert Arrays.equals(a, b);
+        }
+
+        {
+        final int[] a = {2, 3, 4};
+        final int[] b = a;
+        ++b[1];
+        assert a[1] == 4;
+        assert b[1] == 4;
         }
 
         System.out.println("Done.");}}
