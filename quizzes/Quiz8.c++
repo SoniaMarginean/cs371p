@@ -14,15 +14,6 @@ destructor
 */
 
 /* -----------------------------------------------------------------------
-2. In the Eight-Queens Puzzle, how does an object-oriented solution differ
-   from a conventional solution?
-   [Sec. 6.1, Pg. 126]
-   (1 pt)
-
-the queens are empowered to solve the problem themselves
-*/
-
-/* -----------------------------------------------------------------------
 3. In Java and C++, what is the behavior when the stack is exhausted.
    (2 pts)
 
