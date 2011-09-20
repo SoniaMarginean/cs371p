@@ -56,15 +56,17 @@ int main () {
     assert(sizeof(a)     == 12);
     assert(sizeof(&a[0]) == 8);
 //  ++a;                                    // error: lvalue required as left operand of assignment
-    ++a[0];
-    assert(*a   == 3);
-//  assert(a[3] == 0);                      // undefined
+    ++a[1];
+    ++*(a + 1);
+    assert(a[1]     == 5);
+    assert(*(a + 1) == 5);
+//  assert(a[3]     == 0);                  // undefined
     }
 
     {
-    int        a[] = {2, 3, 4};
-//  int        b[] = a;             // error: initializer fails to determine size of 'b'
-    int* const b   = a;
+    int  a[] = {2, 3, 4};
+//  int  b[] = a;         // error: initializer fails to determine size of 'b'
+    int* b   = a;
     assert(a == b);
     }
 
@@ -83,7 +85,7 @@ int main () {
     assert(sizeof(a) != sizeof(b));
     assert(sizeof(a) == 12);
     assert(sizeof(b) ==  8);
-    ++a[1];
+    ++b[1];
     assert(a[1] == 4);
     assert(b[1] == 4);
     }
