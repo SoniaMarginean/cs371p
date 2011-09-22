@@ -5,40 +5,48 @@
 #include <cassert>  // assert
 #include <iostream> // cout, endl
 
+int f (int n) {
+    int m;
+    if (n < 0)
+        m = -1;
+    else if (n > 0)
+        m = 1;
+    else
+        m = 0;
+    return m;}
+
+int g (int n) {
+    return (n < 0) ? -1 : (n > 0) ? 1 : 0;}
+
+int h (int n) {
+    int m;
+    switch (n) {
+        case -2:
+            m = -1;
+            break;
+        case 3:
+            m = 1;
+            break;
+        default:
+            m = 0;
+            break;}
+    return m;}
+
 int main () {
     using namespace std;
     cout << "Selection.c++" << endl;
 
-    {
-    const int i = 2;
-          int j;
-    if (i < 0)
-        j = -1;
-    else if (i > 0)
-        j = 1;
-    else
-        j = 0;
-    assert(j == 1);
-    }
+    assert(f(-2) == -1);
+    assert(f( 0) ==  0);
+    assert(f( 3) ==  1);
 
-    {
-    const int i = 2;
-    const int j = (i < 0) ? -1 : (i > 0) ? 1 : 0;
-    assert(j == 1);
-    }
+    assert(g(-2) == -1);
+    assert(g( 0) ==  0);
+    assert(g( 3) ==  1);
 
-    {
-    const int i = 2;
-          int j = 0;
-    switch (i) {
-        case 0:
-            j = i + 1;
-            break;
-        default:
-            j = i;
-            break;}
-    assert(j == 2);
-    }
+    assert(h(-2) == -1);
+    assert(h( 0) ==  0);
+    assert(h( 3) ==  1);
 
     {
     int s = 0;
