@@ -16,16 +16,16 @@ int main () {
     cout << "StackVsHeap.c++" << endl;
 
     {
-    assert(f(1234567) == 1234567); // 12345678 will fail
+    assert(f(1234567L) == 1234567L); // 12345678L will fail
     }
 
     try {
-        const int* const a = new int[12345678912345];}
+        int* a = new int[12345678912345L];}
     catch (const bad_alloc& e) {
         assert(false);}
 
     try {
-        const int* const a = new int[123456789123456];
+        int* a = new int[123456789123456L];
         assert(false);}
     catch (const bad_alloc& e) {
         assert(strcmp(e.what(), "std::bad_alloc") == 0);}

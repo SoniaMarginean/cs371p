@@ -20,14 +20,14 @@ int main () {
     try {
         assert(f(false) == 0);
         }
-    catch (const domain_error& e) {
+    catch (domain_error& e) {
         assert(false);}
 
     try {
         assert(f(true) == 1);
         assert(false);
         }
-    catch (const domain_error& e) {
+    catch (domain_error& e) {
 //      assert(       e                == "abc");  // error: no match for ‘operator==’ in ‘e == "abc"’
         assert(       e.what()         != "abc");  // warning: comparison with string literal results in unspecified behavior
         assert(strcmp(e.what(), "abc") == 0);

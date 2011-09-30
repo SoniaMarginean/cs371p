@@ -64,23 +64,9 @@ int main () {
     }
 
     {
-    int  a[] = {2, 3, 4};
-//  int  b[] = a;         // error: initializer fails to determine size of 'b'
-    int* b   = a;
-    assert(a == b);
-    }
-
-    {
     int a[] = {2, 3, 4};
-    int b[] = {2, 3, 4};
-    assert(a != b);
-    assert(equal(a, a + 3, b));
-    }
-
-    {
-    int        a[] = {2, 3, 4};
-//  int        b[] = a;             // error: initializer fails to determine size of 'b'
-    int* const b   = a;
+//  int b[] = a;                    // error: initializer fails to determine size of 'b'
+    int* b  = a;
     assert(a         == b);
     assert(sizeof(a) != sizeof(b));
     assert(sizeof(a) == 12);
@@ -88,6 +74,13 @@ int main () {
     ++b[1];
     assert(a[1] == 4);
     assert(b[1] == 4);
+    }
+
+    {
+    int a[] = {2, 3, 4};
+    int b[] = {2, 3, 4};
+    assert(a != b);
+    assert(equal(a, a + 3, b));
     }
 
     cout << "Done." << endl;
